@@ -1,42 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet,Text, View, TextInput, 
-  FlatList, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
-
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack'
-//import PahlawanForm from './components/PahlawanForm';
-
-import PahlawanActivity from './components/PahlawanActivity';
-import Home from './components/Home';
-
-import IdentitasActivity from './components/IdentitasActivity';
-import HasilActivity from './components/HasilActivity';
+  FlatList, TouchableHighlight, KeyboardAvoidingView, Button } from 'react-native';
 
 
 
 
-export default class App extends React.Component {
-   
 
+export default class HasilActivity extends React.Component {
+ 
+
+  static navigationOptions = {
+    title: 'Hasil',
+    headerStyle: {
+    backgroundColor: '#03A9F4',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+    fontWeight: 'bold',
+    },
+    };
+
+    
 
   render(){
   return (
 
-    <AppContainer/>
+    <View style={styles.MainContainer}>
+ 
+    <Text style={styles.textStyle}>
+      Nama = {this.props.navigation.state.params.NamaOBJ}
+    </Text>
+
+    <Text style={styles.textStyle}>
+      Asal = {this.props.navigation.state.params.AsalOBJ}
+    </Text>
+
+    <Text style={styles.textStyle}>
+      Waktu = {this.props.navigation.state.params.WaktuOBJ}
+    </Text>
+  </View>
 );
 }
 }
 
-const AppStackNavigator = createStackNavigator ({
-  Home : {screen: Home},
- Pahlawan :{ screen :PahlawanActivity},
-  Data : {screen :IdentitasActivity},
-  Hasil : {screen : HasilActivity}
- 
-})
 
-const AppContainer = createAppContainer (AppStackNavigator);
   
 const styles = StyleSheet.create({
   container: {
