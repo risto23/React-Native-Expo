@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet,Text, View, TextInput,Platform, 
-  FlatList, TouchableHighlight, Button } from 'react-native';
+import { StyleSheet,Text, View, TextInput,Platform,
+  FlatList, TouchableHighlight,TouchableOpacity, Button } from 'react-native';
 
 
 
@@ -18,33 +18,39 @@ export default class Home extends React.Component {
     fontWeight: 'bold',
     },
     };
- 
+
   render(){
   return (
+    
     <View style={styles.container}>
-      <Button style={styles.btn}
-        title="Form Pahlawan"
-        onPress={() => this.props.navigation.navigate("Pahlawan")}
-      />
-      <br/>
-      <Button style={styles.btn}
-        title="Data Diri"
-        onPress={() => this.props.navigation.navigate("Data")}
-      />
+      
+     <TouchableOpacity          
+        onPress={() => this.props.navigation.navigate("Pahlawan")}  >
+        <View style={styles.btn}>
+          <Text style={styles.btnText}>Pahlawan</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity  activeOpacity={0.2}   
+        onPress={() => this.props.navigation.navigate("Data")}  >
+        <View style={styles.btn}  >
+          <Text style={styles.btnText}>Data Diri</Text>
+        </View>
+      </TouchableOpacity>
+    
     </View>
 );
 }
 }
 
 
-  
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection:'column',
-    alignItems: 'stretch',
+  //  alignItems: 'stretch',
     justifyContent: 'center',
-    backgroundColor: '#fff'    
+    backgroundColor: '#fff'
   },
   namaPahlawan:{
     color:'red',
@@ -55,14 +61,14 @@ const styles = StyleSheet.create({
   asal:{
     fontSize:18
   },
-  textInput:{    
+  textInput:{
     height:50,
     borderWidth: 1,
     borderColor:'black',
     borderRadius: 5,
     margin:10,
     paddingLeft: 10,
-    fontSize: 18    
+    fontSize: 18
   },
   btn:{
     backgroundColor:'#0fa0d1',

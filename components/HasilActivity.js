@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet,Text, View, TextInput, 
-  FlatList, TouchableHighlight, KeyboardAvoidingView, Button } from 'react-native';
+  FlatList, TouchableOpacity, KeyboardAvoidingView, Button } from 'react-native';
 
 
 
@@ -39,6 +39,18 @@ export default class HasilActivity extends React.Component {
     <Text style={styles.textStyle}>
       Waktu = {this.props.navigation.state.params.WaktuOBJ}
     </Text>
+    <Text style={styles.textStyle}>
+      Tanggal yang dipilih = {this.props.navigation.state.params.dateOBJ}
+    </Text>
+    <Text style={styles.textStyle}>
+      Jenis Kelamin = {this.props.navigation.state.params.kelaminOBJ}
+    </Text>
+    <TouchableOpacity  activeOpacity={0.2}   
+        onPress={() => this.props.navigation.navigate("Home")}  >
+        <View style={styles.btn}  >
+          <Text style={styles.btnText}>Home</Text>
+        </View>
+      </TouchableOpacity>
   </View>
 );
 }

@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet,Text, View, TextInput, 
   FlatList, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 class Pahlawan extends React.Component
@@ -120,13 +121,18 @@ export default class PahlawanActivity extends React.Component {
         />
 
       {/* Tombol untuk menambahkan pahlawan. */}
-      <TouchableHighlight          
+      <TouchableOpacity          
         onPress={this.tambahkanPahlawan}  >
         <View style={styles.btn}>
           <Text style={styles.btnText}>Tambahkan Pahlawan</Text>
         </View>
-      </TouchableHighlight>
-
+      </TouchableOpacity>
+      <TouchableOpacity  activeOpacity={0.2}   
+        onPress={() => this.props.navigation.navigate("Home")}  >
+        <View style={styles.btn}  >
+          <Text style={styles.btnText}>Home</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   </KeyboardAvoidingView>
 );
